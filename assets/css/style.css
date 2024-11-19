@@ -1,0 +1,84 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch !important;
+  background-color: black;
+  font-family: Hauora-Regular;
+}
+
+@font-face {
+  font-family: Hauora-Regular;
+  src: url(../fonts/Hauora-Regular.woff) format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Hauora-SemiBold;
+  src: url(../fonts/Hauora-SemiBold.woff) format("woff");
+}
+.mail-vefication-wrap {
+  padding: 50px 20px 30px 20px;
+}
+.mail-vefication-box {
+  position: relative;
+  max-width: 600px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 100px 20px;
+  margin: 0 auto;
+  background-color: #1414144d;
+  box-shadow: 0px 0px 0px 999px #000000b2;
+}
+.mail-vefication-box img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.mail-vefication-box h2 {
+  text-align: center;
+  font-size: 24px;
+  font-family: Hauora-SemiBold;
+  color: #fff;
+}
+.mail-vefication-box p {
+  text-align: center;
+  font-size: 18px;
+  font-family: Hauora-SemiBold;
+  color: #bfbfbf;
+}
+
+@media only screen and (max-width: 767px) {
+  .mail-vefication-wrap {
+    padding: 30px 15px 30px 15px;
+  }
+  .mail-vefication-box {
+    padding: 60px 5px;
+  }
+  .mail-vefication-box img {
+    width: 100px;
+    height: 100px;
+  }
+  .mail-vefication-box .lotties-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+  }
+  .mail-vefication-box h2 {
+    font-size: 20px;
+  }
+  .mail-vefication-box p {
+    font-size: 16px;
+  }
+}

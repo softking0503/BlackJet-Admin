@@ -1,0 +1,28 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/backend
+file_exists_behavior: OVERWRITE
+
+hooks:
+  ApplicationStop:
+    - location: deployment_scripts/application-stop.sh
+      timeout: 300
+      runas: blackjet_dev
+  BeforeInstall:
+    - location: deployment_scripts/before-install.sh
+      timeout: 300
+      runas: root
+  Install:
+    - location: deployment_deployment_scripts/install.sh
+      timeout: 300
+      runas: blackjet_dev
+  AfterInstall:
+    - location: deployment_scripts/after-install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: deployment_scripts/application-start.sh
+      timeout: 300
+      runas: blackjet_dev

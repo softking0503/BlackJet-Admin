@@ -1,0 +1,522 @@
+<style>
+  /* 
+Import the desired font from Google fonts. 
+*/
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+  :root {
+    --font-color: black;
+    --highlight-color: #60D0E4;
+    --header-bg-color: #ffffff;
+    --footer-bg-color: #BFC0C3;
+    --table-row-separator-color: #BFC0C3;
+  }
+
+  @page {
+    size: A4;
+    margin: 8cm 0 3cm 0;
+
+    @top-left {
+      content: element(header);
+    }
+
+    @bottom-left {
+      content: element(footer);
+    }
+  }
+
+  body {
+    margin: 0;
+    padding: 1cm 50px;
+    color: var(--font-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    background-color: #F7F8FA;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  hr {
+    margin: 1cm 0;
+    height: 0;
+    border: 0;
+    border-top: 1mm solid var(--highlight-color);
+  }
+
+  header {
+    min-height: 350px;
+    padding: 0 0;
+    position: running(header);
+    background-color: var(--header-bg-color);
+  }
+
+  header .headerSection {
+    display: flex;
+    justify-content: space-between;
+    background-image: url('./background-1.svg');
+    height: 170px;
+    width: 100%;
+  }
+
+  header .headerSection:first-child {
+    padding-top: .5cm;
+  }
+
+  header .headerSection:last-child {
+    padding-bottom: .5cm;
+  }
+
+  header .headerSection div:last-child {
+    width: auto
+  }
+
+  header .logoAndName {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 100px;
+    left: 40px;
+    background-color: #fff;
+  }
+
+  header .logoAndName img {
+    width: 220px;
+    height: 220px;
+    margin-right: 10px;
+    border: 5px solid rgb(188 217 177);
+    border-radius: 100%;
+  }
+
+  header .headerSection .estimateDetails {
+    padding-top: 1cm;
+  }
+
+  header .headerSection .issuedTo {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header .headerSection .issuedTo h3 {
+    margin: 0 .75cm 0 0;
+    color: var(--highlight-color);
+  }
+
+  header .headerSection div p {
+    margin-top: 2px;
+  }
+
+  header h1,
+  header h2,
+  header h3,
+  header p {
+    margin: 0;
+  }
+
+  header h2,
+  header h3 {
+    text-transform: uppercase;
+  }
+
+  main table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  main table thead th {
+    height: 1cm;
+    color: var(--highlight-color);
+  }
+
+  main table thead th:nth-of-type(2),
+  main table thead th:nth-of-type(3),
+  main table thead th:last-of-type {
+    width: 2.5cm;
+  }
+
+  main table tbody td {
+    padding: 2mm 0;
+    border-bottom: 0.5mm solid var(--table-row-separator-color);
+  }
+
+  main table thead th:last-of-type,
+  main table tbody td:last-of-type {
+    text-align: right;
+  }
+
+  main table th {
+    text-align: left;
+  }
+
+  nnehal prajapatin table.summary {
+    width: calc(40% + 2cm);
+    margin-left: 60%;
+    margin-top: .5cm;
+  }
+
+  main table.summary tr.total {
+    font-weight: bold;
+    background-color: var(--highlight-color);
+  }
+
+  main table.summary th {
+    padding: 4mm 0 4mm 1cm;
+    border-bottom: 0;
+  }
+
+  main table.summary td {
+    padding: 4mm 2cm 4mm 0;
+    border-bottom: 0;
+  }
+
+  aside {
+    -prince-float: bottom;
+    padding: 0 2cm .5cm 2cm;
+  }
+
+  aside p {
+    margin: 0;
+    column-count: 2;
+  }
+
+  footer {
+    height: 3cm;
+    line-height: 3cm;
+    padding: 0 2cm;
+    position: running(footer);
+    font-size: 8pt;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  footer a:first-child {
+    font-weight: bold;
+  }
+</style>
+<header>
+  <div class="headerSection">
+    <div class="logoAndName">
+      <img src="default-user.svg" alt="">
+    </div>
+  </div>
+  <div style="padding-left: 300px; padding-top: 22px;">
+    <table style="width: 100%;">
+      <tbody>
+        <tr>
+          <td colspan="6" width="100%" style="color: #542C7D;font-size: 32px;font-weight: bold;">
+            <p>Justin Scott</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 20px;padding-top: 30px;" width="10%">
+            <img style="position: relative; width: 20px; margin-right: 10px; top: 5px;" src="user-img.png" alt="">
+            <p style="color: #777777;font-size: 16px; display: inline-block;">User</p>
+          </td>
+          <td width="15%" style="padding-top: 30px">
+            <img style="position: relative; width: 20px; margin-right: 10px; top: 5px;" src="location-dot.png" alt="">
+            <p style="color: #777777;font-size: 16px; display: inline-block;">Tallahassee, Florida</p>
+          </td>
+          <td style="text-align: center;padding-top: 10px">
+            <img style="margin: 0 auto;display: block; width: 30px; position: relative; top: -15px;"
+              src="tharapy-type.png" alt="">
+            <p style="color: #777777;font-size: 16px; display: inline-block; text-align: center;">Tallahassee, Florida
+            </p>
+          </td>
+          <!-- <td style="text-align: center;">
+            <button
+              style="background-color:#EF8F91;text-align:center;font-size: 16px;border-radius: 4px;display: block;padding: 15px 30px;border-color: #EF8F91;color: #ffff;box-shadow: none;outline: 0;margin-right: 0;width: 140px;margin: 0 auto;margin-bottom: 10px;border: 0;">
+              Teletherapy</button>
+            <p style="color: #777777;font-size: 16px; display: inline-block; text-align: center;">Start Session <img
+                width="15px" src="up-arrow.png" alt=""></p>
+          </td>
+          <td style="text-align: center;">
+            <div style="display: inline-flex;">
+              <div
+                style="background-color:#F0D4B9; color: #C6966B;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;">
+                5.6</div>
+              <span style="
+          display: inline-block;
+          border-radius: 0px 36px 36px 0px;
+          padding: 7px 10px;
+          text-align: center;
+          background-color: 
+          #F7F8FA;
+          color: #AAAAAA;
+          font-size: 12px;
+          height: 15px;
+          position: relative;
+          top: 10px;
+          "> / 10</span>
+            </div>
+            <img style="width:40px;margin-left: 15px; position: relative; top: 7px;" src="graph-btn.png" alt="">
+            <p style="color: #777777;font-size: 16px; display: block; text-align: center;margin-top: 5px;">Progress
+              towards Goal</p>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+<br><br>
+<main>
+  <table>
+    <!-- A THEAD element is used to ensure the header of the table is repeated if it consumes more than one page. -->
+    <thead>
+      <tr>
+        <th
+          style="padding:35px 50px; background-color: #542C7D;color: #F09092; width: 100%; border-radius: 10px;text-align: center; font-size: 30px;">
+          Progress Report</th>
+      </tr>
+    </thead>
+    <!-- The single estimate items are all within the TBODY of the table. -->
+    <tbody>
+      <tr>
+        <td style="border: 0;">
+          <!-- Main Card UI End Here -->
+          <div
+            style="padding:25px 35px; background-color: #542C7D;color: #F09092; border-radius: 10px;text-align: center; font-size: 30px; margin-top: 20px;">
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="padding-right: 20px;padding-top: 0px;border: 0;" width="60%">
+                    <div
+                      style="color: #BCD9B1; border:1px solid#BCD9B1;border-radius: 36px; padding: 5px 15px;display: inline-block;font-size: 12px;">
+                      <span
+                        style="background-color: #BCD9B1; width: 10px; height: 10px;border-radius: 100%; display: inline-block; margin-right: 5px;"></span>
+                      DOMAIN
+                    </div>
+                    <p style="color: #fff;font-size: 30px;margin-bottom: 15px;font-weight: bold; margin-top: 10px;">
+                      Sensory Processing</p>
+                    <span style="color: #fff;font-size: 16px;margin-bottom: 15px;font-style: italic;font-weight: bold;">
+                      To improve ability to use sensory information to understand and effectively interact with people
+                      and objects in school and home environments.</span>
+                  </td>
+                  <td style="text-align: center;border: 0;">
+                    <div style="display: inline-flex;">
+                      <div
+                        style="background-color:#F0D4B9; color: #C6966B;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;">
+                        5.6</div>
+                      <span style="
+                  display: inline-block;
+                  border-radius: 0px 36px 36px 0px;
+                  padding: 7px 10px;
+                  text-align: center;
+                  background-color: 
+                  #441E6B;
+                  color: #AAAAAA;
+                  font-size: 12px;
+                  height: 15px;
+                  position: relative;
+                  top: 10px;
+                  "> / 10</span>
+                    </div>
+                    <p style="color: #777777;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                      Progress
+                      towards Goal</p>
+                  </td>
+                  <td style="text-align: center;border: 0;">
+                    <div
+                      style="background-color:#441E6B; color: #fff;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;width: 30px;margin: 0 auto;">
+                      90</div>
+                    <p style="color: #777777;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                      Total Sessions
+                    </p>
+                  </td>
+                  <!-- <td style="text-align: center;border: 0;">
+                    <img style="width: 45px;margin-left: 15px;position: relative;top: -10px;" src="graph-btn.png"
+                      alt="">
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Main Card UI End Here -->
+
+          <div>
+            <!-- Sub Card UI start Here -->
+            <div
+              style="padding:25px 35px; background-color: #966AC3;color: #F09092; border-radius: 10px;text-align: center; font-size: 30px; margin-top: 20px;">
+              <table style="width: 100%;">
+                <tbody>
+                  <tr>
+                    <td style="padding-right: 20px;padding-top: 0px;border: 0;" width="60%">
+                      <div
+                      style="color: #86CBDC; border:1px solid#86CBDC;border-radius: 36px; padding: 5px 12px;display: inline-block;font-size: 12px;">
+                      <span
+                        style="background-color: #86CBDC; width: 10px; height: 10px;border-radius: 0; display: inline-block; margin-right: 5px;"></span>
+                      GOAL
+                    </div>
+                  
+                      <p style="color: #fff;font-size: 18px;margin-bottom: 15px;font-weight: bold; margin-top: 10px;">
+                        Accept anticipated touch during a group activity. </p>
+
+                    </td>
+
+
+                    <td style="text-align: center;border: 0;">
+                      <div style="display: inline-flex;">
+                        <div
+                          style="background-color:#F0D4B9; color: #C6966B;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;">
+                          5.6</div>
+                        <span style="
+                display: inline-block;
+                border-radius: 0px 36px 36px 0px;
+                padding: 7px 10px;
+                text-align: center;
+                background-color: 
+                #441E6B;
+                color: #AAAAAA;
+                font-size: 12px;
+                height: 15px;
+                position: relative;
+                top: 10px;
+                "> / 10</span>
+                      </div>
+                      <p style="color: #fff;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                        Progress
+                        towards Goal</p>
+                    </td>
+                    <td style="text-align: center;border: 0;">
+                      <div
+                        style="background-color:#441E6B; color: #fff;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;width: 30px;margin: 0 auto;">
+                        90</div>
+                      <p style="color: #fff;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                        Total Sessions</p>
+                    </td>
+                    <!-- <td style="text-align: center;border: 0;">
+                      <img style="width: 45px;margin-left: 15px;position: relative;top: -10px;" src="graph-btn.png"
+                        alt="">
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Sub Card UI End  Here -->
+            <!-- Sub Sub Card UI Start  Here -->
+            <div
+              style="padding:20px 35px; background-color: #fff; border-radius: 0px;text-align: center; font-size: 30px; margin-top: 2px;">
+              <table style="width: 100%;">
+                <tbody>
+                  <tr>
+                    <td style="padding-right: 20px;padding-top: 0px;border: 0;" width="40%">
+                      <div
+                        style="color: #F09092; border:1px solid#F09092;border-radius: 36px; padding: 5px 15px;display: inline-block;font-size: 16px;">
+                        <img width="16px" style="margin-right: 5px;" src="tringle.png" alt="">
+                        OBJECTIVE
+                      </div>
+                      <p style="color: #777777;font-size: 18px;margin-bottom: 15px;font-weight: normal; margin-top: 15px;">
+                        Accept anticipated touch during a group activity. </p>
+
+                    </td>
+                    <td width="40%" style="border: 0; ">
+                      <div class="progress1" style="width: 40%; height: 20px; border-radius: 10px; background: linear-gradient(90deg, #FE9F9F 0%, #FFD9DA 23.96%, #F0D4B9 49.22%, #C8F0FA 76.04%, #BCD9B1 100%);
+                      ;margin: 0 auto; color: #fff; text-align: center;">25%</div>
+                      <p style="color: #CCCCCC;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                        Total Sessions</p>
+                    </td>
+
+            
+                    <td style="text-align: center;border: 0;">
+                      <div
+                        style="background-color:#F5F5F5; color: #777777;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;width: 30px;margin: 0 auto;">
+                        90</div>
+                      <p style="color: #CCCCCC;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                        Total Sessions</p>
+                    </td>
+                    <!-- <td style="text-align: center;border: 0;">
+                      <img style="width: 45px;margin-left: 15px;position: relative;top: -10px;" src="graph-btn.png"
+                        alt="">
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+            style="padding:20px 35px; background-color: #fff; border-radius: 0px;text-align: center; font-size: 30px; margin-top: 2px;">
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="padding-right: 20px;padding-top: 0px;border: 0;" width="40%">
+                    <div
+                      style="color: #F09092; border:1px solid#F09092;border-radius: 36px; padding: 5px 15px;display: inline-block;font-size: 16px;">
+                      <img width="16px" style="margin-right: 5px;" src="tringle.png" alt="">
+                      OBJECTIVE
+                    </div>
+                    <p style="color: #777777;font-size: 18px;margin-bottom: 15px;font-weight: normal; margin-top: 15px;">
+                      Accept anticipated touch during a group activity. </p>
+
+                  </td>
+                  <td width="40%" style="border: 0; ">
+                    <div class="progress1" style="width: 40%; height: 20px; border-radius: 10px; background: linear-gradient(90deg, #FE9F9F 0%, #FFD9DA 23.96%, #F0D4B9 49.22%, #C8F0FA 76.04%, #BCD9B1 100%);
+                    ;margin: 0 auto; color: #fff; text-align: center;">25%</div>
+                    <p style="color: #CCCCCC;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                      Total Sessions</p>
+                  </td>
+
+          
+                  <td style="text-align: center;border: 0;">
+                    <div
+                      style="background-color:#F5F5F5; color: #777777;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;width: 30px;margin: 0 auto;">
+                      90</div>
+                    <p style="color: #CCCCCC;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                      Total Sessions</p>
+                  </td>
+                  <!-- <td style="text-align: center;border: 0;">
+                    <img style="width: 45px;margin-left: 15px;position: relative;top: -10px;" src="graph-btn.png"
+                      alt="">
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+          style="padding : 20px 35px; background-color: #fff; border-radius: 0px;text-align: center; font-size: 30px; margin-top: 2px;">
+          <table style="width: 100%;">
+            <tbody>
+              <tr>
+                <td style="padding-right: 20px;padding-top: 0px;border: 0;" width="40%">
+                  <div
+                    style="color: #F09092; border:1px solid#F09092;border-radius: 36px; padding: 5px 15px;display: inline-block;font-size: 16px;">
+                    <img width="16px" style="margin-right: 5px;" src="tringle.png" alt="">
+                    OBJECTIVE
+                  </div>
+                  <p style="color: #777777;font-size: 18px;margin-bottom: 15px;font-weight: normal; margin-top: 15px;">
+                    Accept anticipated touch during a group activity. </p>
+
+                </td>
+                <td width="40%" style="border: 0; ">
+                  <div class="progress1" style="width: 40%; height: 20px; border-radius: 10px; background: linear-gradient(90deg, #FE9F9F 0%, #FFD9DA 23.96%, #F0D4B9 49.22%, #C8F0FA 76.04%, #BCD9B1 100%);
+                  ;margin: 0 auto; color: #fff; text-align: center;">25%</div>
+                  <p style="color: #CCCCCC;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                    Total Sessions</p>
+                </td>
+
+        
+                <td style="text-align: center;border: 0;">
+                  <div
+                    style="background-color:#F5F5F5; color: #777777;text-align: center; font-size: 24px; padding: 10px 20px;border-radius: 6px;width: 30px;margin: 0 auto;">
+                    90</div>
+                  <p style="color: #CCCCCC;font-size: 16px; display: block; text-align: center;margin-top: 5px;">
+                    Total Sessions</p>
+                </td>
+                <!-- <td style="text-align: center;border: 0;">
+                  <img style="width: 45px;margin-left: 15px;position: relative;top: -10px;" src="graph-btn.png"
+                    alt="">
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+            <!-- Sub Sub Card UI End  Here -->
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>

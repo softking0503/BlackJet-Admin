@@ -1,0 +1,64 @@
+image: node:18.19.1
+
+options:
+  size: 2x
+  
+clone:
+  depth: full
+
+definitions:
+  caches:
+    sonar: ~/.sonar/cache
+  steps:
+    - step: &build-test-sonarcloud
+        name: Build, test and analyze on SonarCloud
+        caches:
+          - node
+          - sonar
+        script:
+          - npm ci
+          - npm test
+          - pipe: sonarsource/sonarcloud-scan:2.0.0
+            variables:
+              SONAR_TOKEN: ${SONAR_TOKEN}
+              EXTRA_ARGS: >
+                -Dsonar.sources=
+                -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+    - step: &check-quality-gate-sonarcloud
+        name: Check the Quality Gate on SonarCloud
+        script:
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.5
+
+pipelines:
+  branches:
+    master:
+      - step: *build-test-sonarcloud
+      - step: *check-quality-gate-sonarcloud
+      - step:
+          name: Deploy to Testing Server
+          deployment: Test
+          script:
+            - apt-get update && apt-get install -y awscli
+            - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            - aws configure set region $AWS_DEFAULT_REGION
+            - aws ssm send-command --document-name "AWS-RunShellScript" --targets "[{\"Key\":\"instanceids\",\"Values\":[\"$EC2_INSTANCE_ID\"]}]" --parameters '{"commands":["sudo -u ubuntu -i bash -c \"cd /home/ubuntu/blackjet_nodeapis && git pull origin master && npm install && pm2 restart all\""]}'
+
+    production:
+      - step: *build-test-sonarcloud
+      - step: *check-quality-gate-sonarcloud
+      - step:
+          name: Deploy to Production Server
+          deployment: Production
+          trigger: manual
+          script:
+            - apt-get update && apt-get install -y awscli
+            - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+            - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            - aws configure set region $AWS_DEFAULT_REGION
+            - aws ssm send-command --document-name "AWS-RunShellScript" --targets "[{\"Key\":\"instanceids\",\"Values\":[\"$EC2_INSTANCE_ID\"]}]" --parameters '{"commands":["sudo -u ubuntu -i bash -c \"cd /home/ubuntu/blackjet_nodeapis && git pull origin production && npm install && pm2 restart all\""]}'
+  
+  pull-requests:
+    '**':
+      - step: *build-test-sonarcloud
+      - step: *check-quality-gate-sonarcloud
